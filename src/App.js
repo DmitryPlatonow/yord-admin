@@ -1,5 +1,5 @@
 import * as React from "react";
-import { PlaceList, PlaceShow, PlaceCreate, PlaceEdit } from "./places";
+import { PlaceList } from "./places";
 import { Admin, Resource } from "react-admin";
 import {
   FirebaseDataProvider,
@@ -25,11 +25,8 @@ class App extends React.Component {
         authProvider={authProvider}
       >
         <Resource
-          name="places"
+          name="places-test"
           list={PlaceList}
-          show={PlaceShow}
-          create={PlaceCreate}
-          edit={PlaceEdit}
         />
       </Admin>
     );

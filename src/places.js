@@ -13,7 +13,6 @@ import {
     ReferenceInput,
     TextField,
     TextInput,
-    ShowButton,
     EditButton,
     DeleteButton,
     RichTextField,
@@ -36,17 +35,27 @@ const PlaceFilter = (props) => (
 
 export const PlaceList = (props) => (
     <List {...props} filters={<PlaceFilter />}>
-        <Datagrid>
+        <Datagrid expand={<PlaceShow /> }>
             <TextField source="name" />
             <RichTextField source="type" />
             <DateField source="created" />
             <TextField source="schedule" />
-            <ShowButton label="" />
             <EditButton label="" />
             <DeleteButton label="" redirect={false}/>
         </Datagrid>
     </List>
 );
+
+const ImagesList = ({ record }) => (
+    <div>
+        {record.images.map(e=>({src: e, key: e})).map((item, index) => (
+            <img key={item.key} src={item.src} title={index} alt='image' />
+        ))}
+    </div>
+)
+ImagesList.defaultProps = {
+    addLabel: true
+};
 
 export const PlaceShow = (props) => (
     <Show {...props}>
@@ -54,6 +63,7 @@ export const PlaceShow = (props) => (
             <TextField source="id" />
             <TextField source="name" />
             <ImageField source="previewImage" title="title" />
+            <ImagesList source="images" />
             <ArrayField source="socials">
                 <Datagrid>
                     <TextField source="type" />
