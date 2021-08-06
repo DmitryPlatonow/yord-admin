@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/DmitryPlatonow/yord-admin/static/js/main.0cde9a09.chunk.js",
+    "main.js.map": "/DmitryPlatonow/yord-admin/static/js/main.0cde9a09.chunk.js.map",
+    "runtime-main.js": "/DmitryPlatonow/yord-admin/static/js/runtime-main.c8b474ec.js",
+    "runtime-main.js.map": "/DmitryPlatonow/yord-admin/static/js/runtime-main.c8b474ec.js.map",
+    "static/js/2.7df6fff6.chunk.js": "/DmitryPlatonow/yord-admin/static/js/2.7df6fff6.chunk.js",
+    "static/js/2.7df6fff6.chunk.js.map": "/DmitryPlatonow/yord-admin/static/js/2.7df6fff6.chunk.js.map",
+    "index.html": "/DmitryPlatonow/yord-admin/index.html",
+    "precache-manifest.43cb7ea0782f96bbb459882f74d95651.js": "/DmitryPlatonow/yord-admin/precache-manifest.43cb7ea0782f96bbb459882f74d95651.js",
+    "service-worker.js": "/DmitryPlatonow/yord-admin/service-worker.js",
+    "static/js/2.7df6fff6.chunk.js.LICENSE.txt": "/DmitryPlatonow/yord-admin/static/js/2.7df6fff6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c8b474ec.js",
+    "static/js/2.7df6fff6.chunk.js",
+    "static/js/main.0cde9a09.chunk.js"
+  ]
+}
