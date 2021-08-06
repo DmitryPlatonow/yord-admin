@@ -8,7 +8,7 @@ import {
     Create,
     Edit,
     Filter,
-    SimpleShowLayout,
+    ArrayInput,
     SimpleForm,
     ReferenceInput,
     TextField,
@@ -24,6 +24,7 @@ import {
     DateField,
     UrlField,
     ArrayField,
+    SimpleFormIterator,
 } from "react-admin";
 import RichTextInput from "ra-input-rich-text";
 
@@ -52,27 +53,47 @@ const ImagesList = ({ record }) => (
             <img key={item.key} src={item.src} title={index} alt='image' />
         ))}
     </div>
-)
-ImagesList.defaultProps = {
-    addLabel: true
-};
+);
+
+const ArraySocials = ({ record }) => (
+        record.socials.map((item) => (
+            <TextInput label={item.type} source={item.value} />
+        ))
+);
 
 export const PlaceShow = (props) => (
-    <Show {...props}>
-        <SimpleShowLayout>
-            <TextField source="id" />
-            <TextField source="name" />
+    <Edit {...props}>
+        <SimpleForm>
+            <TextInput source="id" options={{ disabled: true }} />
+            <TextInput source="name" />
             <ImageField source="previewImage" title="title" />
             <ImagesList source="images" />
-            <ArrayField source="socials">
-                <Datagrid>
-                    <TextField source="type" />
-                    <UrlField source="value" />
-                </Datagrid>
-            </ArrayField>
-        </SimpleShowLayout>
-    </Show>
+            <ArrayInput source="socials">
+                <SimpleFormIterator disableAdd disableRemove>
+                    <TextInput label='' source="type" disabled />
+                    <TextInput label='' source="value" fullWidth />
+                </SimpleFormIterator>
+            </ArrayInput>
+        </SimpleForm>
+    </Edit>
 );
+
+// export const PlaceShow = (props) => (
+//     <Show {...props}>
+//         <SimpleShowLayout>
+//             <TextField source="id" />
+//             <TextField source="name" />
+//             <ImageField source="previewImage" title="title" />
+//             <ImagesList source="images" />
+//             <ArrayField source="socials">
+//                 <Datagrid>
+//                     <TextField source="type" />
+//                     <UrlField source="value" />
+//                 </Datagrid>
+//             </ArrayField>
+//         </SimpleShowLayout>
+//     </Show>
+// );
 
 export const PlaceCreate = (props) => (
     <Create {...props} >
