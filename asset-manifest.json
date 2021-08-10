@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/yord-admin/static/js/main.ee4515ec.chunk.js",
-    "main.js.map": "/yord-admin/static/js/main.ee4515ec.chunk.js.map",
+    "main.js": "/yord-admin/static/js/main.e2258e84.chunk.js",
+    "main.js.map": "/yord-admin/static/js/main.e2258e84.chunk.js.map",
     "runtime-main.js": "/yord-admin/static/js/runtime-main.9f1cf169.js",
     "runtime-main.js.map": "/yord-admin/static/js/runtime-main.9f1cf169.js.map",
-    "static/js/2.e012c37d.chunk.js": "/yord-admin/static/js/2.e012c37d.chunk.js",
-    "static/js/2.e012c37d.chunk.js.map": "/yord-admin/static/js/2.e012c37d.chunk.js.map",
+    "static/js/2.a7b07625.chunk.js": "/yord-admin/static/js/2.a7b07625.chunk.js",
+    "static/js/2.a7b07625.chunk.js.map": "/yord-admin/static/js/2.a7b07625.chunk.js.map",
     "index.html": "/yord-admin/index.html",
-    "precache-manifest.b78924883aff6eb32085aa809d0c8b1c.js": "/yord-admin/precache-manifest.b78924883aff6eb32085aa809d0c8b1c.js",
+    "precache-manifest.bf4cd1ec1da693454e926b2072d9c6d5.js": "/yord-admin/precache-manifest.bf4cd1ec1da693454e926b2072d9c6d5.js",
     "service-worker.js": "/yord-admin/service-worker.js",
-    "static/js/2.e012c37d.chunk.js.LICENSE.txt": "/yord-admin/static/js/2.e012c37d.chunk.js.LICENSE.txt"
+    "static/js/2.a7b07625.chunk.js.LICENSE.txt": "/yord-admin/static/js/2.a7b07625.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9f1cf169.js",
-    "static/js/2.e012c37d.chunk.js",
-    "static/js/main.ee4515ec.chunk.js"
+    "static/js/2.a7b07625.chunk.js",
+    "static/js/main.e2258e84.chunk.js"
   ]
 }

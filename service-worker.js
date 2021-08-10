@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/yord-admin/precache-manifest.b78924883aff6eb32085aa809d0c8b1c.js"
+  "/yord-admin/precache-manifest.bf4cd1ec1da693454e926b2072d9c6d5.js"
 );
 
 self.addEventListener('message', (event) => {
