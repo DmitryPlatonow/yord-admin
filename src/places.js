@@ -4,7 +4,6 @@ import * as React from "react";
 import {
     Datagrid,
     List,
-    Show,
     Create,
     Edit,
     Filter,
@@ -19,11 +18,8 @@ import {
     SelectInput,
     FileField,
     FileInput,
-    DateInput,
     ImageField,
     DateField,
-    UrlField,
-    ArrayField,
     SimpleFormIterator,
 } from "react-admin";
 import RichTextInput from "ra-input-rich-text";
@@ -55,19 +51,22 @@ const ImagesList = ({ record }) => (
     </div>
 );
 
-const ArraySocials = ({ record }) => (
-        record.socials.map((item) => (
-            <TextInput label={item.type} source={item.value} />
-        ))
-);
-
 export const PlaceShow = (props) => (
     <Edit {...props}>
         <SimpleForm>
+            <SelectInput source="status" choices={[
+                { id: 'Fetched', name: 'Fetched' },
+                { id: 'Edited', name: 'Edited' },
+                { id: 'Approved', name: 'Approved' },
+            ]} />
             <TextInput source="id" options={{ disabled: true }} />
             <TextInput source="name" />
             <ImageField source="previewImage" title="title" />
             <ImagesList source="images" />
+            <TextInput multiline source="description" />
+            <TextInput source="location.address" label="address" />
+            <TextInput source="location.geo.lat" label="lat" />
+            <TextInput source="location.geo.lng" label="lng" />
             <ArrayInput source="socials">
                 <SimpleFormIterator disableAdd disableRemove>
                     <TextInput label='' source="type" disabled />
@@ -77,23 +76,6 @@ export const PlaceShow = (props) => (
         </SimpleForm>
     </Edit>
 );
-
-// export const PlaceShow = (props) => (
-//     <Show {...props}>
-//         <SimpleShowLayout>
-//             <TextField source="id" />
-//             <TextField source="name" />
-//             <ImageField source="previewImage" title="title" />
-//             <ImagesList source="images" />
-//             <ArrayField source="socials">
-//                 <Datagrid>
-//                     <TextField source="type" />
-//                     <UrlField source="value" />
-//                 </Datagrid>
-//             </ArrayField>
-//         </SimpleShowLayout>
-//     </Show>
-// );
 
 export const PlaceCreate = (props) => (
     <Create {...props} >
@@ -108,27 +90,4 @@ export const PlaceCreate = (props) => (
             </FileInput>
         </SimpleForm>
     </Create>
-);
-
-export const PlaceEdit = (props) => (
-    <Edit {...props}>
-        <SimpleForm>
-            <TextInput source="id" options={{ disabled: true }} />
-            <DateInput source="createdate" options={{ disabled: true }} />
-            <DateInput source="lastupdate" options={{ disabled: true }} />
-            <ReferenceInput label="Comment" source="title" reference="comments">
-                <SelectInput optionText="title" />
-            </ReferenceInput>
-            <TextInput source="title" />
-            <RichTextInput source="body" />
-            <SelectInput source="rating" choices={[
-                { id: 1, name: 'Good' },
-                { id: 2, name: 'Okay' },
-                { id: 3, name: 'Bad' },
-            ]} />
-            <FileInput source="file" label="File">
-                <FileField source="src" title="title" />
-            </FileInput>
-        </SimpleForm>
-    </Edit>
 );
