@@ -6,6 +6,7 @@ import {
   FirebaseAuthProvider
 } from "react-admin-firebase";
 import CustomLoginPage from './CustomLoginPage';
+import { LoadPictureModule } from './LoadPictureModule'
 
 import { firebaseConfig as config } from './FIREBASE_CONFIG';
 
@@ -16,19 +17,24 @@ const options = {
 const dataProvider = FirebaseDataProvider(config, options);
 const authProvider = FirebaseAuthProvider(config, options);
 
+
 class App extends React.Component {
   render() {
     return (
-      <Admin
-        loginPage={CustomLoginPage}
-        dataProvider={dataProvider}
-        authProvider={authProvider}
-      >
-        <Resource
-          name="places-test"
-          list={PlaceList}
-        />
-      </Admin>
+        <>
+          <Admin
+            loginPage={CustomLoginPage}
+            dataProvider={dataProvider}
+            authProvider={authProvider}
+          >
+            <Resource
+              name="places-dev-new"
+              list={PlaceList}
+            />
+
+          </Admin>
+          <LoadPictureModule />
+        </>
     );
   }
 }

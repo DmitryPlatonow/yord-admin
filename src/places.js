@@ -1,6 +1,4 @@
-// in src/posts.js
 import * as React from "react";
-// tslint:disable-next-line:no-var-requires
 import {
     Datagrid,
     List,
@@ -12,15 +10,13 @@ import {
     ReferenceInput,
     TextField,
     TextInput,
-    EditButton,
-    DeleteButton,
     RichTextField,
     SelectInput,
     FileField,
     FileInput,
-    ImageField,
     DateField,
     SimpleFormIterator,
+    RadioButtonGroupInput
 } from "react-admin";
 import RichTextInput from "ra-input-rich-text";
 
@@ -37,18 +33,23 @@ export const PlaceList = (props) => (
             <RichTextField source="type" />
             <DateField source="created" />
             <TextField source="schedule" />
-            <EditButton label="" />
-            <DeleteButton label="" redirect={false}/>
+            <TextField source="status" />
         </Datagrid>
     </List>
 );
 
-const ImagesList = ({ record }) => (
+const RenderImage = ({ record }) =>
     <div>
-        {record.images.map(e=>({src: e, key: e})).map((item, index) => (
-            <img key={item.key} src={item.src} title={index} alt='image' />
-        ))}
+        <img style={{ maxWidth: 200, maxHeight: 300 }} key={record.key} src={record.src} alt='image' />
     </div>
+
+
+const ImagesList = ({ record }) => (
+    <RadioButtonGroupInput
+        source="previewImage"
+        choices={record.images.map((item)=>({src: item, id: item}))}
+        optionText={<RenderImage />}
+    />
 );
 
 export const PlaceShow = (props) => (
@@ -61,7 +62,11 @@ export const PlaceShow = (props) => (
             ]} />
             <TextInput source="id" options={{ disabled: true }} />
             <TextInput source="name" />
-            <ImageField source="previewImage" title="title" />
+            <ArrayInput source="images">
+                <SimpleFormIterator>
+                    <TextInput label='' fullWidth />
+                </SimpleFormIterator>
+            </ArrayInput>
             <ImagesList source="images" />
             <TextInput multiline source="description" />
             <TextInput source="location.address" label="address" />
